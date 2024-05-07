@@ -40,6 +40,9 @@ public:
             DrawTriangleLines(wierz[0], wierz[1], wierz[2], BLACK);
             DrawLine((baza.x + 1), baza.y, (baza.x + baza.width - 1), baza.y, WHITE);
     }
+    void Down_pion(){
+        
+    }
     };
 
 int main(void)
