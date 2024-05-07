@@ -13,7 +13,7 @@ class Pion{
     Rectangle baza;
     Vector2 wierz[3];
 
-    Pion(float x, float y, float szer, float wys) {
+    Pion(float x, float y, float szer, float wys){
         baza.x = x;
         baza.y = y;
         baza.width = szer;
@@ -26,22 +26,22 @@ class Pion{
         
     }
 
-    void Rys_pion_start() {
+    void Rys_pion_start(){
         DrawRectangleLines(baza.x, baza.y, baza.width, baza.height, BLACK);
         DrawTriangleLines(wierz[0], wierz[1], wierz[2], BLACK);
         DrawLine((baza.x + 1), baza.y, (baza.x + baza.width - 1), baza.y, WHITE);
     }
-    void Up_pion() {
-        baza.y-=200;
-        for (int i = 0; i < 3; i++) {
-            wierz[i].y -= 200;
+    void Up_pion(){
+        baza.y-=100;
+        for (int i = 0; i < 3; i++){
+            wierz[i].y -= 100;
         }
         DrawRectangleLines(baza.x, baza.y, baza.width, baza.height, BLACK);
         DrawTriangleLines(wierz[0], wierz[1], wierz[2], BLACK);
         DrawLine((baza.x + 1), baza.y, (baza.x + baza.width - 1), baza.y, WHITE);
     }
     void Down_pion(){
-        baza.y+=100;
+        baza.y += 100;
         for (int i = 0; i<3; i++) {
             wierz[i].y += 100;
         }
@@ -50,12 +50,24 @@ class Pion{
         DrawLine((baza.x + 1), baza.y, (baza.x + baza.width - 1), baza.y, WHITE);
     }
     void Left_pion(){
-        
+        baza.x -= 100;
+        for (int i = 0; i<3; i++){
+            wierz[i].x -= 100;
+        }
+        DrawRectangleLines(baza.x, baza.y, baza.width, baza.height, BLACK);
+        DrawTriangleLines(wierz[0], wierz[1], wierz[2], BLACK);
+        DrawLine((baza.x + 1), baza.y, (baza.x + baza.width - 1), baza.y, WHITE);   
     }
     void Right_pion(){
-        
+        baza.x += 100;
+        for (int i = 0; i<3; i++){
+            wierz[i].x += 100;    
+        }
+        DrawRectangleLines(baza.x, baza.y, baza.width, baza.height, BLACK);
+        DrawTriangleLines(wierz[0], wierz[1], wierz[2], BLACK);
+        DrawLine((baza.x + 1), baza.y, (baza.x + baza.width - 1), baza.y, WHITE);
     }
-    };
+};
 
 int main(void)
 {
@@ -121,6 +133,12 @@ int main(void)
             }
             if(IsKeyPressed(KEY_S)){
                 lancaL.Down_pion();
+            }
+            if(IsKeyPressed(KEY_A)){
+                lancaL.Left_pion();
+            }
+            if(IsKeyPressed(KEY_D)){
+                lancaL.Right_pion();
             }
             DrawRectangleRec(player, cplayer);
 
