@@ -43,6 +43,9 @@ public:
     void Down_pion(){
         
     }
+    void Right_pion(){
+        
+    }
     };
 
 int main(void)
