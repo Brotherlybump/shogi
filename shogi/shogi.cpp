@@ -41,6 +41,9 @@ public:
             DrawLine((baza.x + 1), baza.y, (baza.x + baza.width - 1), baza.y, WHITE);
     }
     void Down_pion(){
+
+    }
+    void Left_pion(){
         
     }
     };
