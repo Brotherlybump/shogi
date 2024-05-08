@@ -128,18 +128,34 @@ int main(void)
             //piony
             lancaL.Rys_pion_start();
             skoczekL.Rys_pion_start();
-            if(IsKeyPressed(KEY_W)){
-                lancaL.Up_pion();
-            }
-            if(IsKeyPressed(KEY_S)){
-                lancaL.Down_pion();
-            }
-            if(IsKeyPressed(KEY_A)){
-                lancaL.Left_pion();
-            }
-            if(IsKeyPressed(KEY_D)){
-                lancaL.Right_pion();
-            }
+
+            if(CheckCollisionRecs(lancaL.baza,player)&&player_selected==1){
+
+                if(IsKeyPressed(KEY_W)){
+                    lancaL.Up_pion();
+                    player.y-=100;
+                    cplayer.a=100;
+                    player_selected=0;
+                }
+                if(IsKeyPressed(KEY_S)){
+                    lancaL.Down_pion();
+                    player.y+=100;
+                    cplayer.a=100;
+                    player_selected=0;
+                }
+                if(IsKeyPressed(KEY_A)){
+                    lancaL.Left_pion();
+                    player.x-=100;
+                    cplayer.a=100;
+                    player_selected=0;
+                }
+                if(IsKeyPressed(KEY_D)){
+                    lancaL.Right_pion();
+                    player.x+=100;
+                    cplayer.a=100;
+                    player_selected=0;
+                }
+            }    
             DrawRectangleRec(player, cplayer);
 
             DrawText(("x= " + std::to_string((int)mouse.x) + ", y= " + std::to_string((int)mouse.y)).c_str(), 10, GetScreenHeight() - 20, 20, BLACK);
