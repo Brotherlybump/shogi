@@ -130,7 +130,7 @@ int main(void)
             skoczekL.Rys_pion_start();
 
             if(CheckCollisionRecs(lancaL.baza,player)&&player_selected==1){
-
+//przeniesc flage i ruch playera do funkcji w obiekcie
                 if(IsKeyPressed(KEY_W)){
                     lancaL.Up_pion();
                     player.y-=100;
