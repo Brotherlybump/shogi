@@ -12,7 +12,7 @@ class Pion{
     public: 
     Rectangle baza;
     Vector2 wierz[3];
-
+    
     Pion(float x, float y, float szer, float wys){
         baza.x = x;
         baza.y = y;
@@ -35,7 +35,7 @@ class Pion{
         baza.y-=100;
         for (int i = 0; i < 3; i++){
             wierz[i].y -= 100;
-        }
+        }    
         DrawRectangleLines(baza.x, baza.y, baza.width, baza.height, BLACK);
         DrawTriangleLines(wierz[0], wierz[1], wierz[2], BLACK);
         DrawLine((baza.x + 1), baza.y, (baza.x + baza.width - 1), baza.y, WHITE);
@@ -131,25 +131,25 @@ int main(void)
 
             if(CheckCollisionRecs(lancaL.baza,player)&&player_selected==1){
 
-                if(IsKeyPressed(KEY_W)){
+                if(IsKeyPressed(KEY_W)&&lancaL.baza.y>90){
                     lancaL.Up_pion();
                     player.y-=100;
                     cplayer.a=100;
                     player_selected=0;
                 }
-                if(IsKeyPressed(KEY_S)){
+                if(IsKeyPressed(KEY_S)&&lancaL.baza.y<790){
                     lancaL.Down_pion();
                     player.y+=100;
                     cplayer.a=100;
                     player_selected=0;
                 }
-                if(IsKeyPressed(KEY_A)){
+                if(IsKeyPressed(KEY_A)&&lancaL.baza.x>20){
                     lancaL.Left_pion();
                     player.x-=100;
                     cplayer.a=100;
                     player_selected=0;
                 }
-                if(IsKeyPressed(KEY_D)){
+                if(IsKeyPressed(KEY_D)&&lancaL.baza.x<820){
                     lancaL.Right_pion();
                     player.x+=100;
                     cplayer.a=100;
